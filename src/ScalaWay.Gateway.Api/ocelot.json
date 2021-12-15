@@ -1,0 +1,44 @@
+{
+	"Routes": [
+		{
+			"DownstreamPathTemplate": "/api/v1/accounts",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": 7501
+				}
+			],
+			"UpstreamPathTemplate": "/accounts"
+		},
+
+		{
+			"DownstreamPathTemplate": "/api/v1/workspaces/",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": 7502
+				}
+			],
+			"UpstreamPathTemplate": "/workspaces",
+			"UpstreamHttpMethod": [ "Get", "Post" ]
+		},
+		{
+			"DownstreamPathTemplate": "/api/v1/workspaces/{everything}",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": 7502
+				}
+			],
+			"UpstreamPathTemplate": "/workspaces/{everything}",
+			"UpstreamHttpMethod": [ "Get", "Put", "Post" ]
+		}
+	],
+	"GlobalConfiguration": {
+		//"RequestIdKey": "X-Correlation-Id",
+		"BaseUrl": "https://localhost:7500"
+	}
+}
